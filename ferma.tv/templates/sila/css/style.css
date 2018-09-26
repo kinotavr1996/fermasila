@@ -96,8 +96,6 @@ header .logo {
 }
 .free_call_box .free_num {
   color: #796513;
-  text-decoration: underline;
-  text-underline-position: under;
 }
 
 .menu_wrap_self {
@@ -121,6 +119,12 @@ header .logo {
 .menu_wrap_self li a:hover {
   text-decoration: underline;
 }
+
+.menu_wrap_self li.active a{
+  text-decoration: underline;
+  color: #796513;
+}
+
 .active_lang{
   position: relative;
   display: block;
@@ -917,9 +921,7 @@ header .logo {
 #created_by, #created_by-lbl, #question-lbl{
   display: none;
 }
-.questions .question{
 
-}
 @media screen and (max-width: 1024px) {
   .wrap {
       padding: 0 20px;

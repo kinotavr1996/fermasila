@@ -16,7 +16,6 @@ JHtml::_('behavior.core');
 JHtml::_('behavior.tabstate');
 JHtml::_('behavior.formvalidator');
 JHtml::_('formbehavior.chosen', 'select');
-JHtml::_('behavior.keepalive');
 
 JText::script('ERROR');
 JText::script('JGLOBAL_VALIDATION_FORM_FAILED');
@@ -95,31 +94,30 @@ $tmpl = $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=component' : '';
 		<div class="row-fluid">
 			<div class="span9">
 				<?php
-				echo $this->form->renderField('type');
+				echo $this->form->getControlGroup('type');
 
 				if ($this->item->type == 'alias')
 				{
-					echo $this->form->renderFieldset('aliasoptions');
+					echo $this->form->getControlGroups('aliasoptions');
 				}
 
-				echo $this->form->renderFieldset('request');
+				echo $this->form->getControlGroups('request');
 
 				if ($this->item->type == 'url')
 				{
 					$this->form->setFieldAttribute('link', 'readonly', 'false');
 				}
 
-				echo $this->form->renderField('link');
+				echo $this->form->getControlGroup('link');
 
-				echo $this->form->renderField('browserNav');
-				echo $this->form->renderField('template_style_id');
+				echo $this->form->getControlGroup('browserNav');
+				echo $this->form->getControlGroup('template_style_id');
 				?>
 			</div>
 			<div class="span3">
 				<?php
 				// Set main fields.
 				$this->fields = array(
-					'id',
 					'menutype',
 					'parent_id',
 					'menuordering',
@@ -127,7 +125,8 @@ $tmpl = $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=component' : '';
 					'home',
 					'access',
 					'language',
-					'note',
+					'note'
+
 				);
 
 				if ($this->item->type != 'component')
